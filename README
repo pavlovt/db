@@ -1,0 +1,26 @@
+Description
+
+PDO database layer based on the singleton pattern
+
+Usage
+
+$db = dbWrapper::getDb('db1');
+
+$db->query('SHOW TABLES')->getAll();
+
+
+For defining a class besed on baseTable see class/class.user.php
+This gives a basic method and server side validation with minimal code.
+
+Usage
+
+$User = new User();
+
+# find this user id - $user is array("id" => 2, "username" => "user2" "password" => '...', "email" => "...")
+$user = $User->find(2);
+
+$User->loadList($skip = 10, $limit = 20, $order = "id DESC", $filter = "id > 0");
+
+while ($user = $User->next()) {
+  ...
+}
